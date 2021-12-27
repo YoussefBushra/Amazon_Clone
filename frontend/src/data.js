@@ -18,8 +18,8 @@ const data = {
             image: "./images/p2.jpg",
             price: 100,
             brand: "Nike",
-            rating: 4.5,
-            numReviews: 10,
+            rating: 4,
+            numReviews: 8,
             description: "Best quality - Highly Rated Product"
         },
         {
@@ -29,8 +29,8 @@ const data = {
             image: "./images/p3.jpg",
             price: 99,
             brand: "Nike",
-            rating: 4.5,
-            numReviews: 10,
+            rating: 5,
+            numReviews: 14,
             description: "Best quality - Highly Rated Product"
         },
         {
@@ -40,8 +40,8 @@ const data = {
             image: "./images/p4.jpg",
             price: 129,
             brand: "Nike",
-            rating: 4.5,
-            numReviews: 10,
+            rating: 3.5,
+            numReviews: 32,
             description: "Best quality - Highly Rated Product"
         },
         {
@@ -51,8 +51,8 @@ const data = {
             image: "./images/p5.jpg",
             price: 75,
             brand: "Nike",
-            rating: 4.5,
-            numReviews: 10,
+            rating: 2,
+            numReviews: 12,
             description: "Best quality - Highly Rated Product"
         },
     ]
