@@ -1,18 +1,40 @@
-import React from "react";
-import data from "../data";
+import React, { useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom';
 import Rating from "../components/Rating";
+import { useDispatch, useSelector } from "react-redux";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { detailsProduct } from "../actions/productActions";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ProductScreen(props) {
+    const dispatch = useDispatch();
     const {id} = useParams();
-    const product = data.products.find((x) => Number(x._id) === Number(id));
-    
-    if(!product) {
-        return <div>Product Not Found</div>
-    }
+    const [qty, setQty] = useState(1);
+    //console.log(id);
+    const productId = id;
+    const productDetails = useSelector((state) => state.productDetails);
+    //console.log("222");
+    const {loading, error, product} = productDetails;
+    useEffect(()=> {
+        dispatch(detailsProduct(productId));
+        //console.log("111");
+    }, [dispatch, productId])
+
+    const history = useNavigate();
+    const addToCartHandler = () => {
+        history(`/cart/${productId}?qty=${qty}`);
+    };
+
     return (
         <div>
+            {loading ? (
+                <LoadingBox></LoadingBox>
+            ) : error ? (
+                <MessageBox variant="danger">{error}</MessageBox>
+            ): (
+                <div>
             <Link to="/">Back to Results</Link>
             <div className="row top">
                 <div className="col-2">
@@ -45,17 +67,48 @@ export default function ProductScreen(props) {
                                     <div>Status</div>
                                     <div>
                                         {product.countInStock > 0 ? <span className="success">In Stock</span>:
-                                        <span className="error">Unavailable</span>}
+                                        <span className="danger">Unavailable</span>}
                                     </div>
                                 </div>
                             </li>
+                            {product.countInStock > 0 && (
+                            <>
                             <li>
-                                <button className="primary block">Add to Cart</button>
+                                <div className="row">
+                                <div>Qty</div>
+                                <div>
+                                    <select
+                                    value={qty}
+                                    onChange={(e) => setQty(e.target.value)}
+                                    >
+                                    {[...Array(product.countInStock).keys()].map(
+                                        (x) => (
+                                        <option key={x + 1} value={x + 1}>
+                                            {x + 1}
+                                        </option>
+                                        )
+                                    )}
+                                    </select>
+                                </div>
+                                </div>
                             </li>
+                            <li>
+                                <button
+                                onClick={addToCartHandler}
+                                className="primary block"
+                                >
+                                Add to Cart
+                                </button>
+                            </li>
+                            </>
+                        )}
                         </ul>
                     </div>
                 </div>
             </div>
+            </div>
+        )}
         </div>
+        
     );
 }
