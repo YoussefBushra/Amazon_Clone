@@ -119,6 +119,9 @@ a.brand {
 .col-2{
   flex: 2 1 50rem;
 }
+.min-30{
+  min-width: 30rem;
+}
 /* Image */
 img {
   border-radius: 0.5rem;
@@ -148,8 +151,20 @@ img.large {
 .card-body > * {
   margin-bottom: 0.5rem;
 }
+.special{
+  width: 30rem;
+  margin-left: 30rem;
+  float:right;
+}
 .price {
   font-size: 2rem;
+}
+.qty {
+  width: 8rem;
+  align-content:flex-start;
+  margin: auto;
+  align-self: start;
+  text-align: left;
 }
 /* Rating */
 .rating span {
@@ -192,4 +207,13 @@ img.large {
 }
 .danger {
   color: #a02020;
+}
+
+.badge {
+  background-color: #f02020;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
 }
