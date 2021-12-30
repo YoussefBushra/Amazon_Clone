@@ -5,6 +5,13 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigninScreen';
 import { signout } from './actions/userActions';
+import RegisterScreen from './screens/RegisterScreen';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+
+
 
 
 function App() {
@@ -14,7 +21,7 @@ function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
-  
+
   const signoutHandler = () => {
     dispatch(signout());
   };
@@ -59,6 +66,11 @@ function App() {
             <Route path="/cart/:id" element={<CartScreen/>}></Route>
             <Route path='/product/:id' element={<ProductScreen/>}></Route>
             <Route path="/signin" element={<SigninScreen/>}></Route>
+            <Route path="/register" element={<RegisterScreen/>}></Route>
+            <Route path="/payment" element={<PaymentMethodScreen/>}></Route>
+            <Route path="/placeorder" element={<PlaceOrderScreen/>}></Route>
+            <Route path="/shipping" element={<ShippingAddressScreen/>}></Route>
+            <Route path="/order/:id" element={<OrderScreen/>}></Route>
             <Route path='/' element={<HomeScreen/>} exact></Route>
           </Routes>
         </main>

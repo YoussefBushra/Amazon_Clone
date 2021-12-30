@@ -34,7 +34,7 @@ export default function CartScreen(props) {
     let history = useNavigate();
 
     const checkoutHandler = () => {
-        history('/signin?redirect=shipping');
+        history('/shipping');
     };
 
     return (
