@@ -3,22 +3,27 @@ import bcrypt from 'bcryptjs';
 const data = {
     users: [
         {
-            name: 'Basir',
-            email: 'admin@example.com',
+            name: 'youssef',
+            email: 'youssef@example.com',
             password: bcrypt.hashSync('1234', 8),
             isAdmin: true,
         },
         {
-            name: 'John',
-            email: 'user@example.com',
+            name: 'tasneem',
+            email: 'tasneem@example.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
+        },
+        {
+            name: 'Omar',
+            email: 'Omar@example.com',
             password: bcrypt.hashSync('1234', 8),
             isAdmin: false,
         },
     ],
-
     products: [
         {
-            _id: "1",
+            
             name: "Nike Slim shirt",
             category: 'Shirts',
             image: "../images/p1.jpg",
@@ -30,7 +35,6 @@ const data = {
             description: "Best quality - Highly Rated Product"
         },
         {
-            _id: "2",
             name: "Adidas fit shirt",
             category: 'Shirts',
             image: "../images/p2.jpg",
@@ -42,7 +46,6 @@ const data = {
             description: "Best quality - Highly Rated Product"
         },
         {
-            _id: "3",
             name: "Nike Slim shirt",
             category: 'Shirts',
             image: "../images/p3.jpg",
@@ -54,7 +57,6 @@ const data = {
             description: "Best quality - Highly Rated Product"
         },
         {
-            _id: "4",
             name: "Nike Slim shirt",
             category: 'Shirts',
             image: "../images/p4.jpg",
@@ -66,7 +68,6 @@ const data = {
             description: "Best quality - Highly Rated Product"
         },
         {
-            _id: "5",
             name: "Nike Slim shirt",
             category: 'Shirts',
             image: "../images/p5.jpg",
