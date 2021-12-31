@@ -119,6 +119,9 @@ a.brand {
 .col-2{
   flex: 2 1 50rem;
 }
+.min-30{
+  min-width: 30rem;
+}
 /* Image */
 img {
   border-radius: 0.5rem;
@@ -148,8 +151,20 @@ img.large {
 .card-body > * {
   margin-bottom: 0.5rem;
 }
+.special{
+  width: 30rem;
+  margin-left: 30rem;
+  float:right;
+}
 .price {
   font-size: 2rem;
+}
+.qty {
+  width: 8rem;
+  align-content:flex-start;
+  margin: auto;
+  align-self: start;
+  text-align: left;
 }
 /* Rating */
 .rating span {
@@ -192,4 +207,87 @@ img.large {
 }
 .danger {
   color: #a02020;
+}
+
+.badge {
+  background-color: #f02020;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
+}
+
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.form label {
+  margin: 1rem 0;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #203040;
+  margin: 0;
+  margin-top: 0.4rem;
+  border-radius: 0.5rem;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.loading {
+  display: block;
+}
+
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+.checkout-steps > div.active {
+  border-top-color: #f08000;
+  color: #f08000;
+}
+
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
+
+button.small {
+  font-size: 1.2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.2rem;
 }
