@@ -7,9 +7,12 @@ import SigninScreen from './screens/SigninScreen';
 import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
 
 
 
@@ -48,7 +51,13 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="#signout" onClick={signoutHandler}>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="/signin" onClick={signoutHandler}>
                       Sign Out
                     </Link>
                   </li>
@@ -56,6 +65,27 @@ function App() {
               </div>
             ) : (
               <Link to="/signin">Sign In</Link>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
           
@@ -71,6 +101,8 @@ function App() {
             <Route path="/placeorder" element={<PlaceOrderScreen/>}></Route>
             <Route path="/shipping" element={<ShippingAddressScreen/>}></Route>
             <Route path="/order/:id" element={<OrderScreen/>}></Route>
+            <Route path="/orderhistory" element={<OrderHistoryScreen/>}></Route>
+            <Route path="/profile" element= {<ProfileScreen/>}></Route>
             <Route path='/' element={<HomeScreen/>} exact></Route>
           </Routes>
         </main>

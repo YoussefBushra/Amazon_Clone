@@ -4,7 +4,7 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import dotenv from 'dotenv';
 import orderRouter from './routers/orderRouter.js';
-
+import cors from 'cors'
 
 dotenv.config();
 
@@ -14,9 +14,17 @@ app.use(express.urlencoded({extended: true}));
 mongoose.connect(`mongodb+srv://Amazon:${process.env.PASS}@amazon.sgegu.mongodb.net/Amazon?retryWrites=true&w=majority`, {
 });
 
+app.use(cors())
+
+
+
 mongoose.connection.on('connection', () => {
   console.log('connected to DB');
 })
+
+app.get('/api/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
