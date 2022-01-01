@@ -57,7 +57,7 @@ export const detailsProduct = (productId) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message;
-      dispatch({ type: PRODUCT_CREATE_FAIL, payload: message });
+      dispatch({ type: PRODUCT_CREATE_FAIL, payload: "you cannot add a product now" });
     }
   };
   export const updateProduct = (product) => async (dispatch, getState) => {
